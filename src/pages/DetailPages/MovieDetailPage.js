@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Typography,
-  Grid,
-  Paper,
-  CardMedia,
-  Card,
-  Avatar
-} from "@mui/material";
+import { Typography, Grid, CardMedia, Card, Avatar } from "@mui/material";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import CircularStatic from "../../component/CircularStatic";
@@ -16,13 +9,12 @@ import StarIcon from "@mui/icons-material/Star";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { Box } from "@mui/system";
+import Reviews from "../../component/Reviews";
 
 const MovieDetailPage = () => {
-
   let params = useParams();
 
   const moviedetail = useSelector((state) => state.detailsSlice.movieDetails);
-
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch({
@@ -41,7 +33,7 @@ const MovieDetailPage = () => {
   };
 
   let moonLanding = new Date(moviedetail.release_date);
-
+  let fullDate = moonLanding.toLocaleDateString();
   let year = moonLanding.getFullYear();
 
   return (
@@ -73,7 +65,7 @@ const MovieDetailPage = () => {
                 </Typography>
                 <Grid item lg={12} md={12} sm={12} xs={12}>
                   <Typography variant="h7" color="white">
-                    {moviedetail.release_date}.{" "}
+                    {fullDate}.{" "}
                     {moviedetail.genres?.map((gen) => {
                       return (
                         <Typography
@@ -147,34 +139,7 @@ const MovieDetailPage = () => {
         </Grid>
       </Box>
       <Grid>
-        <Grid container padding="35px">
-          <Grid
-            item
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              "& > :not(style)": {
-                m: 1,
-                width: 900,
-                height: 250,
-              },
-            }}
-            lg={9}
-            md={8}
-            sm={6}
-            xs={6}
-          >
-          
-            <Paper></Paper>
-          </Grid>
-          
-          <Grid item lg={3}
-            md={6}
-            sm={6}
-            xs={6}>
-
-          </Grid>
-        </Grid>
+        <Reviews id={params.id} name={moviedetail.original_title} />
       </Grid>
     </>
   );

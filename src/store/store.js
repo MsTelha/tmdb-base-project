@@ -12,6 +12,8 @@ import bodySlice from "./reducers/bodyReducer";
 import bodySaga from "./sagas/bodySaga";
 import searchSaga from "./sagas/searchSaga";
 import searchSlice from "./reducers/searchReducer";
+import reviewsSlice from "./reducers/reviewReducer";
+import reviewsSaga from "./sagas/reviewsSaga";
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
 const store = configureStore({
@@ -22,6 +24,7 @@ const store = configureStore({
     detailsSlice: detailsSlice.reducer,
     bodySlice: bodySlice.reducer,
     searchSlice: searchSlice.reducer,
+    reviewsSlice: reviewsSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -35,5 +38,6 @@ sagaMiddleware.run(peopleSaga);
 sagaMiddleware.run(detailsSaga);
 sagaMiddleware.run(bodySaga);
 sagaMiddleware.run(searchSaga);
+sagaMiddleware.run(reviewsSaga);
 
 export default store;

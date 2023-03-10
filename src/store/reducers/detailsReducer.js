@@ -7,11 +7,11 @@ const detailsSlice = createSlice({
   reducers: {
     showMovieDetails(state, action) {
       state.movieDetails = action.moviedetails.data;
-      console.log(state.movieDetails);
+      // console.log(state.movieDetails);
     },
     showTvDetail(state, action) {
       state.tvDetails = action.tvdetails.data;
-      console.log(state.tvDetails);
+      // console.log(state.tvDetails);
     }
   },
 });
