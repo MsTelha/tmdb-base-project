@@ -8,7 +8,7 @@ const reviewsSlice = createSlice({
   reducers: {
     showReviews(state, action) {
       state.reviews = action.review.data.results;
-      console.log(state.reviews);
+      // console.log(state.reviews);
     },
   },
 });

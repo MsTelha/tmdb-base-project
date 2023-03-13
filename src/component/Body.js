@@ -8,6 +8,7 @@ import { Grid } from "@mui/material";
 import CircularStatic from "./CircularStatic";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import Skeleton from "@mui/material/Skeleton";
 const Body = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,9 +40,9 @@ const Body = () => {
         sx={{
           overflow: "auto",
         }}
-        >
+      >
         <Stack direction="row" my={2} spacing={2} sx={{ cursor: "pointer" }}>
-          {body ? (
+          {body[0] ? (
             body.map((body) => {
               return (
                 <Card
@@ -71,9 +72,7 @@ const Body = () => {
               );
             })
           ) : (
-            <Typography variant="h7" color="text.secondary">
-              Loading Please Wait
-            </Typography>
+            <Skeleton variant="rectangular" width={210} height={250} />
           )}
         </Stack>
       </Grid>

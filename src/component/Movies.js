@@ -25,7 +25,7 @@ const Movies = () => {
         navigate("movie");
         break;
       case "Now Playing":
-        console.log(e.target.innerText);
+        // console.log(e.target.innerText);
         navigate("/movie/now-playing");
         break;
       case "Upcoming":

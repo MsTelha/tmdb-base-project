@@ -8,7 +8,7 @@ const popularPeopleSlice = createSlice({
     reducers:{
       showPopularPeople(state, action){
       state.popularPeople = action.persons.data.results;
-      console.log(state.popularPeople);
+      // console.log(state.popularPeople);
       }  
     }
 })

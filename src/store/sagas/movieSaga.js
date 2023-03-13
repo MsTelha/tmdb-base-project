@@ -21,7 +21,6 @@ function* showPopular(props) {
 }
 
 function* showNowPlaying(props) {
-  console.log("jhdvsg");
   const nowPlaying = yield axios({
     url: "https://api.themoviedb.org/3/movie/now_playing",
     method: "get",

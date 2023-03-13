@@ -8,7 +8,7 @@ const tvShowsSlice = createSlice({
   reducers: {
     showTvShows(state, action) {
       state.tvShows = action.tvShows.data.results;
-      console.log(state.tvShows);
+      // console.log(state.tvShows);
     },
   },
 });

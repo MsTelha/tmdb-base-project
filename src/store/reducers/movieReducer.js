@@ -15,7 +15,7 @@ const movieSlice = createSlice({
     showNowPlaying(state, action) {
       if (action.count === 1) {
         state.nowPlaying = action.nowPlaying.data.results;
-        console.log(state.nowPlaying);
+        // console.log(state.nowPlaying);
       } else {
         state.nowPlaying = [
           ...state.nowPlaying,
@@ -24,19 +24,19 @@ const movieSlice = createSlice({
       }
     },
     showUpComing(state, action) {
-      console.log("reducerUpComing");
+      // console.log("reducerUpComing");
       if (action.count === 1) {
         state.upComing = action.upComing.data.results;
-        console.log(state.upComing);
+        // console.log(state.upComing);
       } else {
         state.upComing = [...state.upComing, ...action.upComing.data.results];
       }
     },
     showTopRated(state, action) {
-      console.log("reducerTopRated");
+      // console.log("reducerTopRated");
       if (action.count === 1) {
         state.topRated = action.topRated.data.results;
-        console.log(state.topRated);
+        // console.log(state.topRated);
       } else {
         state.topRated = [...state.topRated, ...action.topRated.data.results];
       }

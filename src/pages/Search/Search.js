@@ -24,7 +24,6 @@ const Search = () => {
                       component="img"
                       sx={{ width: 151 }}
                       image={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
-                      alt="Live from space album cover"
                     />
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <CardContent sx={{ flex: "1 0 auto" }}>
