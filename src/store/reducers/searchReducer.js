@@ -9,6 +9,7 @@ const searchSlice = createSlice({
         search(state, action){
         console.log("searchReducer");
    state.search = action.searched.data.results
+   console.log(state.search);
         }
     }
 })

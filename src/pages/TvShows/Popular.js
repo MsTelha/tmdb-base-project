@@ -13,20 +13,21 @@ import CardMedia from "@mui/material/CardMedia";
 import CircularStatic from "../../component/CircularStatic";
 import { useDispatch, useSelector } from "react-redux";
 import LoadMore from "../../component/LoadMore";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router";
+import Skeleton from "@mui/material/Skeleton";
+import Box from "@mui/material/Box";
 
 const TvPopular = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const tvShows = useSelector((state) => state.tvShowsSlice.tvShows);
-  
+
   function clickHandler() {
     navigate(`/tv/${this}`);
     console.log(this);
-  };
+  }
 
- let type = "showTvShows";
+  let type = "showTvShows";
   React.useEffect(() => {
     dispatch({
       type: "showTvShows",
@@ -125,9 +126,9 @@ const TvPopular = () => {
                 );
               })
             ) : (
-              <Grid item>
-                <CircularProgress size="100vh" />
-              </Grid>
+              <Box height="100vh">
+                <Skeleton variant="rectangular" width={210} height={250} />
+              </Box>
             )}
           </Grid>
           <Grid item pt={2}>

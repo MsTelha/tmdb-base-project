@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Home from "../assets/Home.jpg";
 import InputAdornment from "@mui/material/InputAdornment";
-import { Button, Grid } from "@mui/material";
+import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { Container } from "@mui/system";
@@ -61,52 +61,53 @@ const Dashboard = () => {
       <Box
         sx={{
           ...styles.paperContainer,
-          px: 4,
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            fontWeight: 600,
-            color: "white",
-          }}
-        >
-          Welcome.
-        </Typography>
-        <Typography
-          variant="h5"
-          sx={{
-            fontWeight: "bold",
-            color: "white",
-          }}
-        >
-          Millions of movies, TV shows and people to discover. Explore now.
-        </Typography>
-        <TextField
-          placeholder="Search for a movie, tv show, person......"
-          InputLabelProps={{ shrink: false }}
-          id="input-with-icon-textfield"
-          sx={styles.inputField}
-          onChange={(e) => setInput(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment
-                className="searchbtn"
-                position="start"
-                sx={{ height: "46px", marginRight: "0px" }}
-              >
-                <Button
-                  type="submit"
-                  variant="contained"
-                  sx={{ height: "46px", borderRadius: "50px" }}
-                  onClick={submitHandler}
+        <Box padding={12}>
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 600,
+              color: "white",
+            }}
+          >
+            Welcome.
+          </Typography>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: "bold",
+              color: "white",
+            }}
+          >
+            Millions of movies, TV shows and people to discover. Explore now.
+          </Typography>
+          <TextField
+            placeholder="Search for a movie, tv show, person......"
+            InputLabelProps={{ shrink: false }}
+            id="input-with-icon-textfield"
+            sx={styles.inputField}
+            onChange={(e) => setInput(e.target.value)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment
+                  className="searchbtn"
+                  position="start"
+                  sx={{ height: "46px", marginRight: "0px" }}
                 >
-                  Search
-                </Button>
-              </InputAdornment>
-            ),
-          }}
-        />
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ height: "46px", borderRadius: "50px" }}
+                    onClick={submitHandler}
+                  >
+                    Search
+                  </Button>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Box>
       </Box>
     </Container>
   );

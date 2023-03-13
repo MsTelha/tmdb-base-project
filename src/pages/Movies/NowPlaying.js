@@ -14,13 +14,14 @@ import CircularStatic from "../../component/CircularStatic";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import LoadMore from "../../component/LoadMore";
-import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router";
-
+import Skeleton from "@mui/material/Skeleton";
+import Box from "@mui/material/Box";
 const NowPlaying = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const nowPlaying = useSelector((state) => state.movieSlice.nowPlaying);
+
   function clickHandler() {
     navigate(`/movie/${this}`);
     // console.log(this);
@@ -133,9 +134,9 @@ const NowPlaying = () => {
                 );
               })
             ) : (
-              <Grid item>
-                <CircularProgress size="100vh" />
-              </Grid>
+              <Box height="100vh">
+                <Skeleton variant="rectangular" width={210} height={250} />
+              </Box>
             )}
           </Grid>
           <Grid item pt={2}>

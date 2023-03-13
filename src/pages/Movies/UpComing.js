@@ -11,11 +11,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import LoadMore from "../../component/LoadMore";
-import CircularStatic from "../../component/CircularStatic";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import CircularProgress from "@mui/material/CircularProgress";
+import Skeleton from "@mui/material/Skeleton";
+import CircularStatic from "../../component/CircularStatic";
+import Box from '@mui/material/Box';
 const UpComing = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -130,9 +131,13 @@ const UpComing = () => {
                 );
               })
             ) : (
-              <Grid item>
-                <CircularProgress size="100vh" />
-              </Grid>
+              <Box height="100vh">
+                <Skeleton
+                  variant="rectangular"
+                  width={210}
+                  height={250}
+                />
+              </Box>
             )}
           </Grid>
           <Grid item pt={2}>

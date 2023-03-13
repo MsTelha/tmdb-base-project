@@ -24,9 +24,9 @@ const Routing = () => {
           <Route path="/movie/top-rated" element={<TopRated />} />
           <Route path="/tv" element={<TvPopular />} />
           <Route path="/person" element={<PopularPeople />} />
-          <Route path="/search" element={<Search />} />
           <Route path="/movie/:id" element={<MovieDetailPage />} />
           <Route path="/tv/:id" element={<TvDetailPage />} />
+          <Route path="/search" element={<Search />} />
         </Route>
         <Route path="*" element={<Error />} />
       </Routes>

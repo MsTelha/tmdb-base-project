@@ -10,11 +10,17 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { Box } from "@mui/system";
 import Reviews from "../../component/Reviews";
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import Divider from "@mui/material/Divider";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkIcon from "@mui/icons-material/Link";
 
 const MovieDetailPage = () => {
   let params = useParams();
 
   const moviedetail = useSelector((state) => state.detailsSlice.movieDetails);
+  console.log(moviedetail);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch({
@@ -138,8 +144,61 @@ const MovieDetailPage = () => {
           </Grid>
         </Grid>
       </Box>
-      <Grid>
-        <Reviews id={params.id} name={moviedetail.original_title} />
+      <Grid container padding={8} spacing={3}>
+        <Grid item lg={9} md={9} sm={12} xs={12}>
+          <Reviews id={params.id} name={moviedetail.original_title} />
+        </Grid>
+        <Grid item lg={3} md={2} sm={12} xs={12}>
+          <Grid container spacing={1}>
+            <Grid item>
+              <FacebookRoundedIcon fontSize="large" />
+            </Grid>
+            <Grid item>
+              <TwitterIcon fontSize="large" />
+            </Grid>
+            <Grid item>
+              <InstagramIcon fontSize="large" />
+            </Grid>
+            <Grid item>
+              <Divider orientation="vertical" />
+            </Grid>
+            <Grid item>
+              <LinkIcon fontSize="large" />
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Status
+            </Typography>
+            <Typography variant="h7" gutterBottom>
+              {moviedetail.status}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Original Language
+            </Typography>
+            <Typography variant="h7" gutterBottom>
+              {moviedetail.original_language}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Budget
+            </Typography>
+            <Typography variant="h7" gutterBottom>
+              ${moviedetail.budget}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
+              Revenue
+            </Typography>
+            <Typography variant="h7" gutterBottom>
+              ${moviedetail.revenue}
+            </Typography>
+          </Grid>
+        </Grid>
       </Grid>
     </>
   );

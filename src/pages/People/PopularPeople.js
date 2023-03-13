@@ -1,12 +1,13 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import CircularProgress from "@mui/material/CircularProgress";
 import { Container } from "@mui/system";
 import { Grid } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { useDispatch, useSelector } from "react-redux";
+import Skeleton from "@mui/material/Skeleton";
+import Box from '@mui/material/Box';
 const PopularPeople = () => {
   const dispatch = useDispatch();
   const persons = useSelector(
@@ -55,9 +56,13 @@ const PopularPeople = () => {
                 );
               })
             ) : (
-              <Grid item>
-                <CircularProgress size="100vh" />
-              </Grid>
+              <Box height="100vh">
+                <Skeleton
+                  variant="rectangular"
+                  width={210}
+                  height={250}
+                />
+              </Box>
             )}
           </Grid>
         </Grid>

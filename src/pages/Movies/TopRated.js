@@ -13,7 +13,8 @@ import CardMedia from "@mui/material/CardMedia";
 import CircularStatic from "../../component/CircularStatic";
 import { useSelector, useDispatch } from "react-redux";
 import LoadMore from "../../component/LoadMore";
-import CircularProgress from "@mui/material/CircularProgress";
+import Skeleton from "@mui/material/Skeleton";
+import Box from '@mui/material/Box';
 import { useNavigate } from "react-router";
 const TopRated = () => {
   const navigate = useNavigate();
@@ -126,9 +127,13 @@ const TopRated = () => {
                 );
               })
             ) : (
-              <Grid item>
-                <CircularProgress size="100vh" />
-              </Grid>
+              <Box height="100vh">
+                <Skeleton
+                  variant="rectangular"
+                  width={210}
+                  height={250}
+                />
+              </Box>
             )}
           </Grid>
           <Grid item pt={2}>

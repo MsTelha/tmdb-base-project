@@ -14,9 +14,9 @@ import CircularStatic from "../../component/CircularStatic";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import CircularProgress from "@mui/material/CircularProgress";
 import LoadMore from "../../component/LoadMore";
-
+import Skeleton from "@mui/material/Skeleton";
+import Box from '@mui/material/Box';
 const Popular = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -133,9 +133,13 @@ const Popular = () => {
                 );
               })
             ) : (
-              <Grid item>
-                <CircularProgress size="100vh" />
-              </Grid>
+              <Box height="100vh">
+                <Skeleton
+                  variant="rectangular"
+                  width={210}
+                  height={250}
+                />
+              </Box>
             )}
           </Grid>
           <Grid item pt={2}>
